@@ -1,12 +1,12 @@
 //in java 
-public class Main
+public class sorting_algorithms_implementation
 {
     public static int[] Bubble_Sort(int[] arr)
     {
         int n = arr.length ;
-        boolean swap = false ;
         for(int i =0;i<n-1 ;i++)
         {
+            boolean swap = false ;
             for(int j=0;j<n-1-i ;j++)
             {
                 if(arr[j] > arr[j+1])
