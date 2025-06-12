@@ -16,7 +16,47 @@ Input: edges = [[1,2],[2,3],[3,4],[1,4],[1,5]]
 Output: [1,4]
 '''
 
+class Solution(object):
+    def findRedundantConnection(self, edges):
+        # Since there will be only one cycle forming edge
+        n = len(edges)
 
+        # initially parent of all nodes (1-n) will be itself and all their rank is 1 
+        parent = []
+        for node in range(n+1) :
+            parent.append(node)
+        rank = [1] * (n+1)
+
+        def find(n) :
+            p = parent[n]
+            # a root node will always a parent of its own
+            while p!=parent[p] :
+                parent[p] = parent[parent[p]]
+                p = parent[p]
+            return p
+
+        def union( n1 , n2 ) :
+            # find the root parent of nodes n1 and n2 
+            p1 = find(n1)
+            p2 = find(n2)
+
+            #if they both have the same root parent , then this edge will create a cycle
+            if p1 == p2 :
+                return False 
+
+            # change the parent of the parent nodes with greater ranked parent
+            if rank[p1] > rank[p2] :
+                parent[p2] = p1
+                rank[p1] = rank[p1] + rank[p2]
+            else :
+                parent[p1] = p2 
+                rank[p2] = rank[p2] + rank[p1]
+            return True
+        
+        for n1,n2 in edges :
+            if not union(n1,n2) :
+                return [n1,n2]
+        
 
 
     

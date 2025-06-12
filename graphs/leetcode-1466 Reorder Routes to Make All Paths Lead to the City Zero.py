@@ -58,7 +58,7 @@ class Solution(object):
             for neighbour in neighbours[city] : # check if all its neighbour has edge to that city 
                 if neighbour in visited : # if that city is already visited 
                     continue
-                #check if this neighbpur can reach city 0 
+                #check if this neighbour can reach city 0 
                 if ( neighbour , city ) not in edges :
                     self.changes = self.changes + 1
 
