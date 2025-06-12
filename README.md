@@ -1,7 +1,7 @@
 
 # 📘 Data Structures and Algorithms Overview
 
-This guide provides a concise summary of key data structures and algorithms, with links for visual learning and conceptual clarity.
+This document outlines the foundational elements of data structures and algorithms in a simplified format.
 
 ---
 
