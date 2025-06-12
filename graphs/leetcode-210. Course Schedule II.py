@@ -25,6 +25,7 @@ Output: [0]
 
 class Solution(object):
     def findOrder(self, n , prerequisites):
+        # TOPOLOGICAL SORT 
         #have a prerequisite map for each n courses
         pre_map = {}
 
