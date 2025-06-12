@@ -7,6 +7,8 @@
 ## deque
 ## linked list
 ## tree
+## graph
+# hash tables
 ## sorting algorithms 
 
 
