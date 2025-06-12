@@ -28,3 +28,58 @@ Output: 0
 '''
 
 
+class Solution(object):
+    def __init__(self) :
+        self.changes = 0 
+
+    def minReorder(self, n, connections):
+        # start at city 0
+        # recursively check its neighbours to the city 
+        # count the outgoing edges
+
+        edges = set()
+        for a,b in connections :
+            edges.add((a,b))
+        
+        neighbours = {}
+
+        # each n city has neighbours
+        for city in range(n) :
+            neighbours[city] = []
+        
+        # add the neighbours of each city from the edges
+        for a,b in edges :
+            neighbours[a].append(b)
+            neighbours[b].append(a)
+
+        visited = set()
+
+        def dfs (city) :
+            for neighbour in neighbours[city] : # check if all its neighbour has edge to that city 
+                if neighbour in visited : # if that city is already visited 
+                    continue
+                #check if this neighbpur can reach city 0 
+                if ( neighbour , city ) not in edges :
+                    self.changes = self.changes + 1
+
+                visited.add(neighbour)
+                dfs(neighbour)
+
+
+        visited.add(0)
+        dfs(0)
+        return self.changes
+            
+
+
+
+'''
+tc : 5 * O(n)
+1. Building edges
+2. Initialize neighbours
+3. Finding neighbours
+4. DFS Traversal
+5. visited set Operation   
+
+sc : O(n) (due to stack space)
+'''
