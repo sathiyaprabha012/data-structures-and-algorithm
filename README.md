@@ -91,4 +91,4 @@ This document outlines the foundational elements of data structures and algorith
 ---
 
 ## 🎥 Visual Learning Resource
-🔗 [VisualAlgo](https://visualgo.net/en/list)
+🔗 [VisualAlgo](https://visualgo.net/en)
